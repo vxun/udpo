@@ -1,6 +1,6 @@
-# Java閮ㄧ讲骞冲彴
+# Java部署平台
 
-## 鎶�鏈爤
+## 技术栈
 
 - SpringBoot
 - MyBatis-Spring-Boot
