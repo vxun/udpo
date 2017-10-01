@@ -1,13 +1,9 @@
-package zxw.app.udpo.controller;
+package zxw.app.udpo.core.controller;
 
-import org.apache.ibatis.annotations.ResultMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @title: HelloWorldController

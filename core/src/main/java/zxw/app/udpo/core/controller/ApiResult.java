@@ -1,4 +1,4 @@
-package zxw.app.udpo.controller;
+package zxw.app.udpo.core.controller;
 
 import java.io.Serializable;
 

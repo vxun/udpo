@@ -1,3 +1,6 @@
 /src/.idea
 /src/*.iml
 /src/target
+/core/.idea
+/core/*.iml
+/core/target
