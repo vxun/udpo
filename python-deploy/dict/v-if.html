@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+
+  <div id="app">
+    {{ message }}
+    <ol>
+      <!-- 创建一个 todo-item 组件的实例 -->
+      <todo-item
+        v-for="item in groceryList"
+        v-bind:todo="item"
+        v-bind:key="item.id">
+      </todo-item>
+    </ol>
+    <input type="text" v-model='loginType'>
+    <br>
+    <h3>if 模块复用</h3>
+    <p>那么在下面的代码中切换 loginType 将不会清除用户已经输入的内容。因为两个模板使用了相同的元素，&lt;input&gt; 不会被替换掉——仅仅是替换了它的 placeholder</p>
+    <hr>
+    <template v-if="loginType === 'username'">
+      <label>Username</label>
+      <input placeholder="Enter your username">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Enter your email address">
+    </template>
+    <p>使用key关键字管理复用; 现在，每次切换时，输入框都将被重新渲染</p>
+    <template v-if="loginType === 'username'">
+      <label>Username</label>
+      <input placeholder="Enter your username" key='1'>
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Enter your email address" key='2'>
+    </template>
+    <hr>
+    <p>v-if和v-show用法大致一直, 只是v-show的元素会始终渲染DOM, 只是简单的通过css的display操作</p>
+    <p>一般来说，v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 v-show 较好；如果在运行时条件很少改变，则使用 v-if 较好。</p>
+    <div>
+      <label for="">v-show</label>
+      <input type="checkbox" placeholder="v-show" v-model="vShow">
+      <h1 v-show="vShow">Hello!</h1>
+    </div>
+
+  </div>
+</body>
+<script type="text/javascript">
+  Vue.component('todo-item', {
+    // todo-item 组件现在接受一个
+    // "prop"，类似于一个自定义特性。
+    // 这个 prop 名为 todo。
+    props: ['todo'],
+    template: '<li>{{ todo.text }}</li>'
+  });
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!',
+      groceryList: [
+       { id: 0, text: '蔬菜' },
+       { id: 1, text: '奶酪' },
+       { id: 2, text: '随便其它什么人吃的东西' }
+     ],
+     loginType: 'username',
+     vShow: true,
+    }
+  })
+
+</script>
+</html>

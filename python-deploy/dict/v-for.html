@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for="item in items">
+      {{ item.message }}
+    </li>
+  </ul>
+  <p>item, index</p>
+  <ul>
+    <li v-for='(item, index) of items'>
+      index - {{ index }} - {{ item.message }}
+    </li>
+  </ul>
+  <p>遍历对象</p>
+  <p>value, key, index</p>
+  <ul>
+    <li v-for='(value, key, index) of obj'>
+      value = {{ value }}, key = {{ key }}, index = {{ index }}
+    </li>
+  </ul>
+  <p>key, index, 第一个参数为value, 第二个参数为key, 第三个参数为index</p>
+  <ul>
+    <li v-for='(key, index) of obj'>
+      key = {{ key }}, index = {{ index }}
+    </li>
+  </ul>
+</div>
+
+</body>
+
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      items: [
+        { message: 'Foo' },
+        { message: 'Bar' }
+      ],
+      obj:{
+        firstName: 'John',
+        lastName: 'Doe',
+        age: 30
+      }
+    },
+
+  });
+</script>
+
+</html>
